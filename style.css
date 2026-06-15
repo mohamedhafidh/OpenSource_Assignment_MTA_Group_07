@@ -97,3 +97,18 @@ input, textarea, select {
     color: red;
     font-weight: bold;
 }
+
+.nav a:last-child {
+    color: #dc2626;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #0f172a;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
