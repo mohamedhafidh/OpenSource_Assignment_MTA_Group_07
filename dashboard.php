@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+include "db.php";
+
+$totalProjects = mysqli_fetch_assoc(
+    mysqli_query($conn, "SELECT COUNT(*) AS total FROM portfolio")
+)['total'];
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -27,7 +33,10 @@ if (!isset($_SESSION['user_id'])) {
    <h1>Welcome, <?php echo $_SESSION['full_name']; ?> 👋</h1>
 
 <p>Manage your digital artwork, animation projects, and multimedia portfolio items from one place.</p>
-
+<div class="card">
+    <h3>📊 Portfolio Summary</h3>
+    <p>Total Portfolio Items: <strong><?php echo $totalProjects; ?></strong></p>
+</div>
 <div class="card">
     <h3>➕ Add Portfolio Item</h3>
     <p>Store artwork, animation, design, or multimedia project details.</p>
